@@ -20,24 +20,9 @@ class MyApp extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Container(
-                    color: Colors.white,
-                    height: 90,
-                    width: 300,
-                    margin: EdgeInsets.fromLTRB(0, 30, 0, 30),
-                  ),
-                  Container(
-                    color: Colors.white,
-                    height: 90,
-                    width: 300,
-                    margin: EdgeInsets.fromLTRB(0, 30, 0, 30),
-                  ),
-                  Container(
-                    color: Colors.white,
-                    height: 90,
-                    width: 300,
-                    margin: EdgeInsets.fromLTRB(0, 30, 0, 30),
-                  ),
+                  BaseContainer(),
+                  BaseContainer(),
+                  BaseContainer(),
                 ],
               ),
             ),
@@ -47,23 +32,14 @@ class MyApp extends StatelessWidget {
             color: Colors.blue,
             child: Row(
               children: [
-                Container(
-                  color: Colors.green,
-                  height: 50,
-                  width: 50,
-                  margin: EdgeInsets.fromLTRB(40, 0, 40, 0),
+                ColoredContainer(
+                  chosenColor: Colors.green,
                 ),
-                Container(
-                  color: Colors.yellow,
-                  height: 50,
-                  width: 50,
-                  margin: EdgeInsets.fromLTRB(40, 0, 40, 0),
+                ColoredContainer(
+                  chosenColor: Colors.yellow,
                 ),
-                Container(
-                  color: Colors.red,
-                  height: 50,
-                  width: 50,
-                  margin: EdgeInsets.fromLTRB(40, 0, 40, 0),
+                ColoredContainer(
+                  chosenColor: Colors.red,
                 ),
               ],
               crossAxisAlignment: CrossAxisAlignment.center,
@@ -72,6 +48,32 @@ class MyApp extends StatelessWidget {
           ),
         ],
       ),
+    );
+  }
+}
+
+class BaseContainer extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      color: Colors.white,
+      height: 90,
+      width: 300,
+      margin: EdgeInsets.fromLTRB(0, 30, 0, 30),
+    );
+  }
+}
+
+class ColoredContainer extends StatelessWidget {
+  final Color chosenColor;
+  ColoredContainer({Key key, this.chosenColor}) : super(key: key);
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      color: chosenColor,
+      height: 50,
+      width: 50,
+      margin: EdgeInsets.fromLTRB(40, 0, 40, 0),
     );
   }
 }
